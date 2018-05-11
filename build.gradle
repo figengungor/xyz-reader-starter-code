@@ -22,6 +22,7 @@ allprojects {
     ext {
         androidSupportVersion = "27.1.1"
         okHttp3Version = "3.10.0"
+        picassoVersion = '2.5.2'
     }
 }
 

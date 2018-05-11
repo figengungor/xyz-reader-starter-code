@@ -1,6 +1,5 @@
 package com.example.xyzreader.ui;
 
-
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
@@ -19,13 +18,13 @@ import android.text.format.DateUtils;
 import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
-
 import com.example.xyzreader.R;
 import com.example.xyzreader.data.ArticleLoader;
 import com.example.xyzreader.data.ItemsContract;
 import com.example.xyzreader.data.UpdaterService;
-
+import com.squareup.picasso.Picasso;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -183,11 +182,9 @@ public class ArticleListActivity extends AppCompatActivity implements
                                 + mCursor.getString(ArticleLoader.Query.AUTHOR)));
             }
 
-            holder.thumbnailView.setImageUrl(
-                    mCursor.getString(ArticleLoader.Query.THUMB_URL),
-                    ImageLoaderHelper.getInstance(ArticleListActivity.this).getImageLoader());
-
-            holder.thumbnailView.setAspectRatio(mCursor.getFloat(ArticleLoader.Query.ASPECT_RATIO));
+            Picasso.with(holder.itemView.getContext())
+                    .load(mCursor.getString(ArticleLoader.Query.THUMB_URL))
+                    .into(holder.thumbnailView);
 
         }
 
@@ -198,7 +195,7 @@ public class ArticleListActivity extends AppCompatActivity implements
     }
 
     private static class ViewHolder extends RecyclerView.ViewHolder {
-        private DynamicHeightNetworkImageView thumbnailView;
+        private ImageView thumbnailView;
         private TextView titleView;
         private TextView subtitleView;
 
