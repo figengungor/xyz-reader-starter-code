@@ -55,6 +55,9 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="#fff"
+        app:behavior_overlapTop="@dimen/detail_card_overlap"
+        android:layout_marginEnd="@dimen/detail_card_horizontal_margin"
+        android:layout_marginStart="@dimen/detail_card_horizontal_margin"
         android:maxWidth="@dimen/detail_card_max_width"
         app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
