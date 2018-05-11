@@ -186,6 +186,8 @@ public class ArticleListActivity extends AppCompatActivity implements
                     .load(mCursor.getString(ArticleLoader.Query.THUMB_URL))
                     .into(holder.thumbnailView);
 
+            holder.thumbnailView.setAspectRatio(mCursor.getFloat(ArticleLoader.Query.ASPECT_RATIO));
+
         }
 
         @Override
@@ -195,7 +197,7 @@ public class ArticleListActivity extends AppCompatActivity implements
     }
 
     private static class ViewHolder extends RecyclerView.ViewHolder {
-        private ImageView thumbnailView;
+        private DynamicHeightNetworkImageView thumbnailView;
         private TextView titleView;
         private TextView subtitleView;
 
