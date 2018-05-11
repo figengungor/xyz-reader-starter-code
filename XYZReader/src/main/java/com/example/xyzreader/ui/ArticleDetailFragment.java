@@ -3,10 +3,6 @@ package com.example.xyzreader.ui;
 import android.content.Intent;
 import android.database.Cursor;
 import android.graphics.Typeface;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.util.Date;
-import java.util.GregorianCalendar;
 import android.os.Bundle;
 import android.support.design.widget.CollapsingToolbarLayout;
 import android.support.v4.app.Fragment;
@@ -23,9 +19,15 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+
 import com.example.xyzreader.R;
 import com.example.xyzreader.data.ArticleLoader;
 import com.squareup.picasso.Picasso;
+
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.GregorianCalendar;
 
 /**
  * A fragment representing a single Article detail screen. This fragment is
@@ -172,7 +174,7 @@ public class ArticleDetailFragment extends Fragment implements
                                 + "</font>"));
 
             }
-            bodyView.setText(Html.fromHtml(mCursor.getString(ArticleLoader.Query.BODY).replaceAll("(\r\n|\n)", "<br />")));
+            bodyView.setText(mCursor.getString(ArticleLoader.Query.BODY));
         } else {
             mRootView.setVisibility(View.GONE);
             titleView.setText("N/A");
